@@ -1,16 +1,20 @@
-import { View, Text, TextInput, Button } from "react-native";
+import { useCallback } from "react";
+import { View } from "react-native";
 import { useRouter } from "expo-router";
+
+import { Button } from "@/components/common";
 
 export default function Signup() {
   const router = useRouter();
 
+  const handleBackToLogin = useCallback(
+    () => router.replace("/(auth)"),
+    [router],
+  );
+
   return (
     <View style={{ flex: 1, justifyContent: "center", padding: 20 }}>
-      <Text>Sign Up</Text>
-      <TextInput placeholder="Email" style={{ borderBottomWidth: 1, marginBottom: 20 }} />
-      <TextInput placeholder="Password" secureTextEntry style={{ borderBottomWidth: 1, marginBottom: 20 }} />
-      <Button title="Sign Up" onPress={() => router.replace("(main)/home")} />
-      <Button title="Back to Login" onPress={() => router.push("login")} />
+      <Button label="Back to Login" onClick={handleBackToLogin} />
     </View>
   );
 }

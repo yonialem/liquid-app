@@ -1,6 +1,5 @@
-import { createContext, useState, ReactNode, useContext } from "react";
+import { createContext, useState, ReactNode } from "react";
 import {useRouter} from "expo-router";
-
 
 type AuthContextType = {
  isAuthenticated: boolean;
@@ -15,7 +14,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
  const router = useRouter();
 
  const login = () => {setIsAuthenticated(true); router.replace("/(main)");}
- const logout = () => {setIsAuthenticated(false); router.replace("/auth");}
+ const logout = () => {setIsAuthenticated(false); router.replace("/(auth)");}
 
  return (
    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
