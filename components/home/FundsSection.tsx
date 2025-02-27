@@ -18,7 +18,7 @@ export const FundsSection: React.FC<FundsSectionProps> = ({ fundsData }) => {
     >
       <View style={styles.fundsContent}>
         <View style={styles.fundsHeader}>
-          <Text style={styles.fundsLabel}>{fundsData.availableFunds}</Text>
+          <Text style={styles.fundsLabel}>{"Available Funds"}</Text>
           <Text style={styles.fundsMonth}>{fundsData.month}</Text>
         </View>
         <Text style={styles.fundsAmount}>{fundsData.amount}</Text>

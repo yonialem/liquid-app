@@ -16,13 +16,16 @@ export const SpendingGoals: React.FC<SpendingGoalsProps> = ({
       <Text style={styles.spendingGoalsTitle}>{"Spending Goals"}</Text>
       {spendingGoals.map((goal, index) => (
         <View key={index} style={styles.spendingGoalItem}>
-          <View style={styles.goalIcon}>
-            <Ionicons name="fast-food-outline" size={34} color="#0618A3" />
+          <View style={styles.goalWrapper}>
+            <View style={styles.goalIcon}>
+              <Ionicons name="fast-food-outline" size={34} color="#0618A3" />
+            </View>
+            <View style={styles.goalText}>
+              <Text style={styles.goalCategory}>{goal.category}</Text>
+              <Text style={styles.goalAmount}>{"you are out of budget!"}</Text>
+            </View>
           </View>
-          <View style={styles.goalText}>
-            <Text style={styles.goalCategory}>{goal.category}</Text>
-            <Text style={styles.goalAmount}>{goal.amount}</Text>
-          </View>
+
           <View style={styles.progressContainer}>
             <Text style={styles.progressAmount}>{goal.progress.current}</Text>
             <Text style={styles.progressTotal}>
@@ -64,12 +67,18 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   spendingGoalItem: {
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
     width: "100%",
     gap: 10,
     marginBottom: 15,
+  },
+  goalWrapper: {
+    width: "100%",
+    padding:0,
+    flexDirection: "row",
+    justifyContent: "flex-start",
   },
   goalIcon: {
     height: 50,
@@ -93,9 +102,9 @@ const styles = StyleSheet.create({
     color: "#000",
   },
   goalAmount: {
-    fontWeight: "400",
+    fontWeight: "500",
     fontSize: 12,
-    color: "#A3ABD9",
+    color: "#E05E5A",
   },
   progressContainer: {
     flexDirection: "row",
